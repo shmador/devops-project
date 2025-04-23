@@ -11,5 +11,5 @@
 3. Check the output log of the pipeline job  
    You should see all the instances associated with the AWS credentials in the `il-central-1` region
 
-This setup demonstrates how to use secret data in Jenkins with HashiCorp Vault
+This is an example setup on how to use secret data in Jenkins with HashiCorp Vault
 
