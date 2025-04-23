@@ -1,4 +1,4 @@
-# Role Name
+# openvpn
 
 OpenVPN server configuration role  
 Handles everything — just run the `.ovpn` file (it will appear in the directory where the playbook is run)
