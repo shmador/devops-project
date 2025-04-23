@@ -1,0 +1,17 @@
+- name: Install awscli
+  import_playbook: awscliplay.yaml
+
+- name: Set up machine to automatically update dns
+  hosts: server
+  become: yes
+  tasks:
+    - name: Copy script to remote machine
+      copy:
+        src: "./{{ SCR_NAME }}"
+        dest: "{{ SCR_REMOTE_PATH }}/{{ SCR_NAME }}"
+        owner: root
+        group: root
+        mode: u=rwx,g=rx,o=rx
+  vars:
+    SCR_NAME: auto_dns
+    SCR_REMOTE_PATH: /var/lib/cloud/scripts/per-boot

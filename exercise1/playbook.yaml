@@ -1,0 +1,39 @@
+- name: Save local data (from consul)
+  hosts: localhost
+  tasks:
+    - name: Get the port value from consul
+      uri:
+        url: http://localhost:8500/v1/kv/test/port?raw
+        return_content: true
+      register: port_value
+ 
+    - name: Test the value
+      debug:
+        var: port_value.content
+
+- name: Set up nginx on remote server
+  hosts: server
+  become: yes
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: latest
+        update_cache: yes
+  
+    - name: Modify nginx config
+      lineinfile:
+        path: /etc/nginx/sites-available/default
+        # Match the ipv4 port configuration line  
+        # ^ starts with   \s* any whitespace  \s one whitespace  \d+ any number of digits
+        regexp: '^\s*listen\s\d+' 
+        line: listen {{ hostvars['localhost']['port_value'].content }} default_server;
+        backrefs: yes
+      notify:
+        - Restart nginx
+
+  handlers:
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: restarted

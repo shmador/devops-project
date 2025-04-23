@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'PORT', defaultValue: '6789', description: 'Port number to store in consul')
+    }
+    environment{
+        CONSUL_URL="http://consul:8500/v1/kv/test/port"
+    }
+    stages {
+        stage('Push to consul') {
+            steps {
+                sh "curl -XPUT ${CONSUL_URL} -d ${params.PORT}"
+            }
+        }
+        stage('Verify data in consul') {
+            steps {
+                sh "curl ${CONSUL_URL}?raw"
+            }
+        }
+    }
+}
