@@ -1,9 +1,11 @@
 services:
-  consul:
-    image: hashicorp/consul
-    container_name: consul
+  vault:
+    image: hashicorp/vault
+    container_name: vault
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "00000000-0000-0000-0000-000000000000"
     ports:
-      - "8500:8500"
+      - "8200:8200"
     networks:
       - jenkins
   jenkins:
@@ -18,6 +20,9 @@ services:
       - CASC_JENKINS_CONFIG=/var/jenkins_home/casc_configs/jenkins.yaml
     volumes:
       - /opt/appdata/jenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+      - /var/lib/docker:/var/lib/docker
     networks:
       - jenkins
 networks:

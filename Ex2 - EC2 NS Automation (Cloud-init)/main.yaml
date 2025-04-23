@@ -1,5 +1,5 @@
 - name: Install awscli
-  import_playbook: awscliplay.yaml
+  import_playbook: install.yaml
 
 - name: Set up machine to automatically update dns
   hosts: server

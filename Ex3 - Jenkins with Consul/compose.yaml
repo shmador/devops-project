@@ -1,0 +1,24 @@
+services:
+  consul:
+    image: hashicorp/consul
+    container_name: consul
+    ports:
+      - "8500:8500"
+    networks:
+      - jenkins
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    environment:
+      - CASC_JENKINS_CONFIG=/var/jenkins_home/casc_configs/jenkins.yaml
+    volumes:
+      - /opt/jenkins:/var/jenkins_home
+    networks:
+      - jenkins
+networks:
+  jenkins:

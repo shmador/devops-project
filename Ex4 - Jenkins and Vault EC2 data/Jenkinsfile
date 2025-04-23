@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    environment {
+        VAULT_ADDR = 'http://vault:8200'
+        VAULT_TOKEN = '00000000-0000-0000-0000-000000000000'
+    }
+
+    stages {
+        stage('Fetch aws credentials from vault') {
+            steps {
+                script {
+                    def awsAccessKeyId = sh(returnStdout: true, script: "docker exec -e VAULT_TOKEN=${env.VAULT_TOKEN} -e VAULT_ADDR=${env.VAULT_ADDR} vault vault kv get -field=access_key secret/aws")
+                    def awsSecretAccessKey = sh(returnStdout: true, script: "docker exec -e VAULT_TOKEN=${env.VAULT_TOKEN} -e VAULT_ADDR=${env.VAULT_ADDR} vault vault kv get -field=secret_key secret/aws")
+
+                    env.AWS_ACCESS_KEY_ID = awsAccessKeyId
+                    env.AWS_SECRET_ACCESS_KEY = awsSecretAccessKey
+                    env.AWS_DEFAULT_REGION = 'il-central-1'
+                }
+            }
+        }
+
+        stage('Fetch ec2 metadata') {
+            steps {
+                script {
+                    def ec2Metadata = sh(
+                        returnStdout: true,
+                        script: "docker run --rm -e AWS_ACCESS_KEY_ID=${env.AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${env.AWS_SECRET_ACCESS_KEY} -e AWS_DEFAULT_REGION=${env.AWS_DEFAULT_REGION} amazon/aws-cli ec2 describe-instances --query 'Reservations[].Instances[].InstanceId' --output text"
+                    )
+                    echo "EC2 Instance IDs: ${ec2Metadata}"
+                }
+            }
+        }
+    }
+}
+

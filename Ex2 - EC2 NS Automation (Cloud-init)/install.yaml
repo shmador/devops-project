@@ -1,0 +1,33 @@
+- name: Install awscli
+  hosts: server
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Ensure required dependencies are installed
+      package:
+        name:
+          - unzip
+          - curl
+        state: present
+
+    - name: Download the awscli installation script
+      get_url:
+        url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+        dest: /tmp/awscliv2.zip
+
+    - name: Unzip awscli installation package
+      unarchive:
+        src: /tmp/awscliv2.zip
+        dest: /tmp/
+        remote_src: yes
+
+    - name: Install awscli
+      command:
+        cmd: /tmp/aws/install
+        creates: /usr/local/bin/aws
+
+    - name: Clean up installation files
+      file:
+        path: /tmp/awscliv2.zip
+        state: absent
+
