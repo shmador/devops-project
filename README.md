@@ -4,15 +4,6 @@ This repo has several small DevOps projects, each focused on a different tool or
 
 ---
 
-## Prerequisites
-
-Make sure you have these installed:
-
-- Docker
-- Ansible
-
----
-
 ## Exercises Overview
 
 ### Ex1 - OpenVPN Server (Ansible Role)
@@ -32,6 +23,15 @@ Installs JFrog Artifactory using an Ansible playbook
 
 ### Ex6 - Docker Compose for Artifactory
 Runs Artifactory using Docker Compose
+
+---
+
+## Prerequisites
+
+Make sure you have these installed:
+
+- Docker
+- Ansible
 
 ---
 
