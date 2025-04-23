@@ -1,7 +1,5 @@
 # DevOps Project Collection
 
-This repo has several small DevOps projects, each focused on a different tool or workflow like Ansible, Jenkins, Vault, Docker, and AWS
-
 ---
 
 ## Exercises Overview

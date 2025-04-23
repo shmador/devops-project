@@ -1,39 +1,48 @@
-Role Name
-=========
+# Role Name
 
-Openvpn server configuration role, handles everything, just run the .ovpn file (Will apear in the directory where the playbook is ran)
+OpenVPN server configuration role  
+Handles everything — just run the `.ovpn` file (it will appear in the directory where the playbook is run)
 
-Requirements
-------------
+---
 
-Remote Ubuntu machine
+## Requirements
 
-Role Variables
---------------
+- Remote Ubuntu machine
 
-server_ip - No need to configure, being set automatically to the remote ansible host
+---
 
-Dependencies
-------------
+## Role Variables
+
+- `server_ip` – No need to configure, it is set automatically to match the remote Ansible host
+
+---
+
+## Dependencies
 
 None
 
-Example Playbook
-----------------
+---
 
-    - hosts: servers
-      become: yes
-      roles:
-         - openvpn
+## Example Playbook
 
-License
--------
+```yaml
+- hosts: servers
+  become: yes
+  roles:
+    - openvpn
+```
+
+---
+
+## License
 
 BSD
 
-Author Information
-------------------
+---
 
-Dor Attar
-dorattar4@gmail.com
-https://github.com/shmador
+## Author Information
+
+Dor Attar  
+dorattar4@gmail.com  
+[GitHub - shmador](https://github.com/shmador)
+
