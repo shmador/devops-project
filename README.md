@@ -38,6 +38,6 @@ Make sure you have these installed:
 Clone the repo:
 
 ```bash
-git clone https://github.com/yourusername/devops-project.git
+git clone git@github.com:shmador/devops-project.git
 cd devops-project
 
