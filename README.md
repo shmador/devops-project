@@ -28,7 +28,7 @@ Runs Artifactory using Docker Compose
 
 Make sure you have these installed:
 
-- Docker
+- Docker with compose plugin
 - Ansible
 
 ---
