@@ -1,0 +1,38 @@
+{
+ "collection_info": {
+  "namespace": "jfrog",
+  "name": "platform",
+  "version": "11.0.6",
+  "authors": [
+   "JFrog Maintainers Team <installers@jfrog.com>"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "jfrog",
+   "platform",
+   "devops",
+   "application",
+   "artifactory",
+   "distribution",
+   "xray"
+  ],
+  "description": "This collection provides roles for installing JFrog Platform which includes Artifactory, Distribution and  Xray.Additionally, it provides optional SSL and Postgresql roles if these are needed for your deployment.",
+  "license": [
+   "Apache-2.0"
+  ],
+  "license_file": null,
+  "dependencies": {},
+  "repository": "https://github.com/jfrog/JFrog-Cloud-Installers/tree/master/Ansible",
+  "documentation": "https://github.com/jfrog/JFrog-Cloud-Installers/blob/master/Ansible/ansible_collections/jfrog/platform/README.md",
+  "homepage": "https://github.com/jfrog/JFrog-Cloud-Installers/tree/master/Ansible/ansible_collections/jfrog/platform",
+  "issues": "https://github.com/jfrog/JFrog-Cloud-Installers/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "b04b53095d136d0cd7158e5fb2302f09f8b8c5e6ea3f51dce3ece208b32016d4",
+  "format": 1
+ },
+ "format": 1
+}

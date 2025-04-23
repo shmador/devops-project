@@ -1,7 +1,5 @@
 - name: Configure openvpn server
   hosts: server
   become: yes
-  vars:
-    server_ip: dor.aws.cts.care
   roles:
     - openvpn

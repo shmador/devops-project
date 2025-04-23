@@ -1,3 +1,7 @@
+- name: Set ip address
+  set_fact:
+    server_ip: "{{ ansible_host }}"
+
 - name: Read ca certificate content
   shell: cat /etc/openvpn/ca.crt
   register: ca_cert

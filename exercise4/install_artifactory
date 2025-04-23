@@ -1,0 +1,4 @@
+#!/bin/bash
+MASTER_KEY_VALUE=$(openssl rand -hex 32)
+JOIN_KEY_VALUE=$(openssl rand -hex 32)
+ansible-playbook -vv platform.yml -i hosts.ini --extra-vars "master_key=$MASTER_KEY_VALUE join_key=$JOIN_KEY_VALUE"

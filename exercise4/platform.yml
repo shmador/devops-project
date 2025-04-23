@@ -1,0 +1,10 @@
+---
+- hosts: server
+  become: yes
+  collections:
+    - jfrog.platform
+  roles:
+    - artifactory
+  vars:
+    artifactory_enabled: yes
+

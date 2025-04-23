@@ -1,0 +1,7 @@
+- name: Play for xray_servers
+  hosts: xray_servers
+  collections:
+    - community.general
+  roles:
+    - role: xray
+      when: xray_enabled | bool
