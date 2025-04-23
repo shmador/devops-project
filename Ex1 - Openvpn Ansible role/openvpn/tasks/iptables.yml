@@ -12,7 +12,7 @@
   set_fact:
     vpn_interface: "{{ item.key }}"
   with_dict: "{{ interfaces_facts }}"
-  when: item.value.ipv4 is defined and item.value.ipv4.address == ansible_host
+  when: item.value.ipv4 is defined and item.value.ipv4.address == ansible_default_ipv4.address
 
 - name: Enable nat for vpn traffic
   command:
