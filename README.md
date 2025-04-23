@@ -1,34 +1,43 @@
 # DevOps Project Collection
 
-This repository contains a series of DevOps-focused exercises, each addressing different tools and workflows in the ecosystem — including Ansible, Jenkins, Vault, Docker, and AWS EC2.
+This repo has several small DevOps projects, each focused on a different tool or workflow like Ansible, Jenkins, Vault, Docker, and AWS
+
+---
+
+## Prerequisites
+
+Make sure you have these installed:
+
+- Docker
+- Ansible
 
 ---
 
 ## Exercises Overview
 
 ### Ex1 - OpenVPN Server (Ansible Role)
-An Ansible role to set up an OpenVPN server for secure communication.
+Setting up an OpenVPN server using Ansible
 
 ### Ex2 - EC2 Nameserver Boot Update
-Cloud-init script that updates the EC2 instance’s nameserver to match its IP on boot.
+Changes the nameserver on an EC2 instance to match its IP when it starts
 
 ### Ex3 - Nginx Deployment via Jenkins & Consul
-A Jenkins pipeline that deploys an Nginx server on a port dynamically delivered by Consul.
+Uses Jenkins and Consul to deploy an Nginx server on a custom port
 
 ### Ex4 - Vault-Jenkins AWS Credential Integration
-Integration of HashiCorp Vault with Jenkins for secure storage and use of AWS credentials — demonstrated via a pipeline that fetches EC2 instance data.
+Connects Vault and Jenkins to store AWS credentials and use them in a pipeline to get EC2 info
 
 ### Ex5 - Artifactory Installation with Ansible
-Automated installation of JFrog Artifactory using an Ansible playbook.
+Installs JFrog Artifactory using an Ansible playbook
 
-### Ex5 (alt) - Docker Compose for Artifactory
-Docker-based deployment of Artifactory using a `docker-compose.yml` file.
+### Ex6 - Docker Compose for Artifactory
+Runs Artifactory using Docker Compose
 
 ---
 
 ## Getting Started
 
-Clone the repository:
+Clone the repo:
 
 ```bash
 git clone https://github.com/yourusername/devops-project.git
