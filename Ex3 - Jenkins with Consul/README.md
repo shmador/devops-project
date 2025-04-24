@@ -15,5 +15,5 @@ docker-compose up
 ansible-playbook -i inventory.ini playbook.yaml
 ```
 
-Now there should be an Nginx server running on the specified port on the remote machine
+Now there should be an Nginx server running on the specified port on the remote machine on the  port value from jenkins
 
